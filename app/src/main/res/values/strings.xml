@@ -1,4 +1,66 @@
 <resources>
     <string name="app_name">GCloudClient</string>
     <string name="action_settings">Settings</string>
+
+    <string name="download_progress">Download Progress:</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="button_subscribe">Listen for Changes</string>
+    <string name="button_unsubscribe">Stop Listening for Changes</string>
+    <string name="file_created">Created file: %1$s.</string>
+    <string name="file_create_error">Error while trying to create the file.</string>
+    <string name="select_folder">Select a folder</string>
+    <string name="select_file">Select file</string>
+    <string name="custom_property_deleted">Custom properties successfully deleted.</string>
+    <string name="update_failed">Unable to update file.</string>
+    <string name="change_event">File change event: %1$s</string>
+    <string name="tickle_finished">Finished tickling. Restart watch to resume.</string>
+    <string name="content_updated">Successfully edited contents.</string>
+    <string name="content_update_failed">Error while editing contents.</string>
+    <string name="metadata_updated">Successfully updated metadata.</string>
+    <string name="custom_property_updated">Custom property successfully inserted or updated.</string>
+    <string name="file_not_pinnable">File is not pinnable.</string>
+    <string name="file_already_pinned">File is already pinned.</string>
+    <string name="query_failed">Problem while retrieving files.</string>
+    <string name="read_failed">Error while retrieving file.</string>
+    <string name="metadata_retrieved">Metadata successfully fetched. Title: %1$s</string>
+    <string name="content_loaded">File contents successfully read.</string>
+    <string name="file_deleted">File deleted.</string>
+    <string name="delete_failed">Unable to delete file.</string>
+    <string name="subscribed">Subscribed.</string>
+    <string name="unsubscribed">Unsubscribed.</string>
+    <string name="init_failed">Unable to initialize activity.</string>
+    <string name="file_not_selected">No file selected, can not continue.</string>
+    <string name="folder_not_selected">No folder selected, can not continue.</string>
+
+    <string-array name="titles_array">
+        <item>Create an empty file</item>
+        <item>Create a file</item>
+        <item>Create a folder</item>
+        <item>Create a file in a folder</item>
+        <item>Create a folder in a folder</item>
+        <item>Create a file in App Folder</item>
+        <item>Create a file with creator activity</item>
+        <item>Retrieve metadata</item>
+        <item>Retrieve contents</item>
+        <item>Listen download progress</item>
+        <item>Edit metadata</item>
+        <item>Append contents</item>
+        <item>Rewrite contents</item>
+        <item>Pin a file to the device</item>
+        <item>Insert/Update custom property</item>
+        <item>Delete custom porperty</item>
+        <item>Query text files</item>
+        <item>Query files in a folder</item>
+        <item>Query non text files</item>
+        <item>Query sorted files</item>
+        <item>Query files shared with me</item>
+        <item>Query files with specific title</item>
+        <item>Query files with custom properties</item>
+        <item>Query starred text files</item>
+        <item>Query text or html files</item>
+        <item>Listening for file changes</item>
+        <item>Subscribe for file changes</item>
+    </string-array>
+
 </resources>

@@ -20,7 +20,35 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ListFilesActivity"></activity>
+        <activity android:name=".QueryFilesActivity" />
+        <activity android:name=".RetrieveContentsActivity" />
+        <activity android:name=".RetrieveContentsWithProgressDialogActivity" />
+        <activity android:name=".CreateFileActivity" />
+        <activity android:name=".CreateEmptyFileActivity" />
+        <activity android:name=".CreateFileInAppFolderActivity" />
+        <activity android:name=".CreateFolderActivity" />
+        <activity android:name=".DeleteFileActivity" />
+        <activity android:name=".AppendContentsActivity" />
+        <activity android:name=".RewriteContentsActivity" />
+        <activity android:name=".EditMetadataActivity" />
+        <activity android:name=".CreateFileWithCreatorActivity" />
+        <activity android:name=".RetrieveMetadataActivity" />
+        <activity android:name=".CreateFileInFolderActivity" />
+        <activity android:name=".CreateFolderInFolderActivity" />
+        <activity android:name=".QueryFilesInFolderActivity" />
+        <activity android:name=".PinFileActivity" />
+        <activity android:name=".events.ListenChangeEventsForFilesActivity" />
+        <activity android:name=".events.SubscribeChangeEventsForFilesActivity" />
+        <activity android:name=".QueryNonTextFilesActivity" />
+        <activity android:name=".QueryFilesSharedWithMeActivity" />
+        <activity android:name=".QueryFilesWithTitleActivity" />
+        <activity android:name=".QueryStarredTextFilesActivity" />
+        <activity android:name=".QueryTextOrHtmlFilesActivity" />
+        <activity android:name=".InsertUpdateCustomPropertyActivity" />
+        <activity android:name=".QueryFilesWithCustomPropertyActivity" />
+        <activity android:name=".DeleteCustomPropertyActivity" />
+        <activity android:name=".QuerySortedFilesActivity" />
+
 
         <meta-data
             android:name="com.google.android.gms.version"

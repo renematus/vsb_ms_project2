@@ -15,6 +15,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -28,22 +31,40 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class MainActivity extends AppCompatActivity  {
+import droid.vsb.ms.rmatu.gcloudclient.events.ListenChangeEventsForFilesActivity;
+import droid.vsb.ms.rmatu.gcloudclient.events.SubscribeChangeEventsForFilesActivity;
 
+public class MainActivity extends Activity {
+    private final Class[] sActivities = new Class[] {CreateEmptyFileActivity.class,
+            CreateFileActivity.class, CreateFolderActivity.class, CreateFileInFolderActivity.class,
+            CreateFolderInFolderActivity.class, CreateFileInAppFolderActivity.class,
+            CreateFileWithCreatorActivity.class, RetrieveMetadataActivity.class,
+            RetrieveContentsActivity.class, RetrieveContentsWithProgressDialogActivity.class,
+            EditMetadataActivity.class, AppendContentsActivity.class, RewriteContentsActivity.class,
+            PinFileActivity.class, InsertUpdateCustomPropertyActivity.class,
+            DeleteCustomPropertyActivity.class, QueryFilesActivity.class,
+            QueryFilesInFolderActivity.class, QueryNonTextFilesActivity.class,
+            QuerySortedFilesActivity.class, QueryFilesSharedWithMeActivity.class,
+            QueryFilesWithTitleActivity.class, QueryFilesWithCustomPropertyActivity.class,
+            QueryStarredTextFilesActivity.class, QueryTextOrHtmlFilesActivity.class,
+            ListenChangeEventsForFilesActivity.class, SubscribeChangeEventsForFilesActivity.class};
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-    }
 
-    public void CreateFile(View view) {
+        String[] titles = getResources().getStringArray(R.array.titles_array);
+        ListView mListViewSamples = (ListView) findViewById(R.id.listViewSamples);
+        mListViewSamples.setAdapter(
+                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, titles));
+        mListViewSamples.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-    }
-
-    public void ListFiles(View view) {
-        Intent intent = new Intent(this, ListFilesActivity.class);
-        startActivity(intent);
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int i, long arg3) {
+                Intent intent = new Intent(getBaseContext(), sActivities[i]);
+                startActivity(intent);
+            }
+        });
     }
 }

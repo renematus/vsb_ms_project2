@@ -176,12 +176,5 @@ public class TempActivity extends AppCompatActivity implements GoogleApiClient.C
         Log.i(TAG, "GoogleApiClient connection suspended");
     }
 
-    public void CreateFile(View view) {
 
-    }
-
-    public void ListFiles(View view) {
-        Intent intent = new Intent(this, ListFilesActivity.class);
-        startActivity(intent);
-    }
 }
