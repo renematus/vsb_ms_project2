@@ -99,12 +99,6 @@ public class CreateFileInFolderActivity extends BaseActivity {
                             outputStream.write(buffer, 0, bytesRead);
                         }
 
-
-//                        try (Writer writer = new OutputStreamWriter(outputStream)) {
-//                            writer.write("Hello World!");
-//                        }
-                        //.setMimeType("text/plain")
-
                         MetadataChangeSet changeSet = new MetadataChangeSet.Builder()
                                                               .setTitle(uploadFile.getName())
                                                               .setStarred(true)
