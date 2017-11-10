@@ -159,7 +159,6 @@ public abstract class BaseActivity extends Activity {
     protected Task<DriveId> pickTextFile() {
         OpenFileActivityOptions openOptions =
                 new OpenFileActivityOptions.Builder()
-                        .setSelectionFilter(Filters.eq(SearchableField.MIME_TYPE, "text/plain"))
                         .setActivityTitle(getString(R.string.select_file))
                         .build();
         return pickItem(openOptions);
