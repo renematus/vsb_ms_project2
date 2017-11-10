@@ -20,6 +20,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".view.CloudClientActivity" />
+
         <activity android:name=".QueryFilesActivity" />
         <activity android:name=".RetrieveContentsActivity" />
         <activity android:name=".RetrieveContentsWithProgressDialogActivity" />

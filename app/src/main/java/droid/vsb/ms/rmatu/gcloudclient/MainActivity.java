@@ -33,9 +33,10 @@ import java.io.OutputStream;
 
 import droid.vsb.ms.rmatu.gcloudclient.events.ListenChangeEventsForFilesActivity;
 import droid.vsb.ms.rmatu.gcloudclient.events.SubscribeChangeEventsForFilesActivity;
+import droid.vsb.ms.rmatu.gcloudclient.view.CloudClientActivity;
 
 public class MainActivity extends Activity {
-    private final Class[] sActivities = new Class[] {CreateEmptyFileActivity.class,
+    private final Class[] sActivities = new Class[] {CloudClientActivity.class, CreateEmptyFileActivity.class,
             CreateFileActivity.class, CreateFolderActivity.class, CreateFileInFolderActivity.class,
             CreateFolderInFolderActivity.class, CreateFileInAppFolderActivity.class,
             CreateFileWithCreatorActivity.class, RetrieveMetadataActivity.class,
