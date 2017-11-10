@@ -60,6 +60,7 @@ public class CloudClientActivity extends AppCompatActivity {
 
     public void upload(View view) {
         Intent intent = new Intent(this, CreateFileInFolderActivity.class);
+        intent.putExtra("fileName", tvSelectedFile.getText());
         startActivity(intent);
 
     }

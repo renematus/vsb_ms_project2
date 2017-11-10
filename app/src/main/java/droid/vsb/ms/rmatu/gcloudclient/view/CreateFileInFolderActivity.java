@@ -14,8 +14,12 @@
 
 package droid.vsb.ms.rmatu.gcloudclient.view;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.google.android.gms.drive.DriveContents;
 import com.google.android.gms.drive.DriveFile;
@@ -27,6 +31,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
@@ -38,6 +45,20 @@ import droid.vsb.ms.rmatu.gcloudclient.R;
  */
 public class CreateFileInFolderActivity extends BaseActivity {
     private static final String TAG = "CreateFileActivity";
+
+    String mUploadFileName;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Intent  uploadFileIntent =  getIntent();
+        if (uploadFileIntent!=null)
+        {
+            mUploadFileName = uploadFileIntent.getStringExtra("fileName");
+        }
+
+    }
 
     @Override
     protected void onDriveClientReady() {
@@ -66,15 +87,26 @@ public class CreateFileInFolderActivity extends BaseActivity {
                     @Override
                     public Task<DriveFile> then(@NonNull Task<DriveContents> task)
                             throws Exception {
+                        File uploadFile = new File(mUploadFileName);
+                        InputStream inStream = new FileInputStream(uploadFile);
+
                         DriveContents contents = task.getResult();
                         OutputStream outputStream = contents.getOutputStream();
-                        try (Writer writer = new OutputStreamWriter(outputStream)) {
-                            writer.write("Hello World!");
+
+                        byte[] buffer = new byte[100000];
+                        int bytesRead = 0;
+                        while ((bytesRead = inStream.read(buffer)) != -1) {
+                            outputStream.write(buffer, 0, bytesRead);
                         }
 
+
+//                        try (Writer writer = new OutputStreamWriter(outputStream)) {
+//                            writer.write("Hello World!");
+//                        }
+                        //.setMimeType("text/plain")
+
                         MetadataChangeSet changeSet = new MetadataChangeSet.Builder()
-                                                              .setTitle("New file")
-                                                              .setMimeType("text/plain")
+                                                              .setTitle(uploadFile.getName())
                                                               .setStarred(true)
                                                               .build();
 
