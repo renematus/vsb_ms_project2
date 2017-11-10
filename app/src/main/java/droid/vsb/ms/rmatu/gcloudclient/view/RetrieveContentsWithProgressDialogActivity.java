@@ -12,8 +12,9 @@
  * limitations under the License.
  */
 
-package droid.vsb.ms.rmatu.gcloudclient;
+package droid.vsb.ms.rmatu.gcloudclient.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -29,11 +30,17 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import droid.vsb.ms.rmatu.gcloudclient.R;
 import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
 
 /**
@@ -55,6 +62,8 @@ public class RetrieveContentsWithProgressDialogActivity extends BaseActivity {
 
     private ExecutorService mExecutorService;
 
+    private String mDownloadFolderName;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +72,16 @@ public class RetrieveContentsWithProgressDialogActivity extends BaseActivity {
         mProgressBar.setMax(100);
         mFileContents = findViewById(R.id.fileContents);
         mFileContents.setText("");
+
+        Intent downloadFolderIntent =  getIntent();
+        if (downloadFolderIntent!=null)
+        {
+            mDownloadFolderName = downloadFolderIntent.getStringExtra("folderName");
+        }
+
         mExecutorService = Executors.newSingleThreadExecutor();
+
+
     }
 
     @Override
@@ -111,17 +129,42 @@ public class RetrieveContentsWithProgressDialogActivity extends BaseActivity {
                 // Read contents
                 // [START_EXCLUDE]
                 try {
-                    try (BufferedReader reader = new BufferedReader(
-                                 new InputStreamReader(driveContents.getInputStream()))) {
-                        StringBuilder builder = new StringBuilder();
-                        String line;
-                        while ((line = reader.readLine()) != null) {
-                            builder.append(line);
-                        }
-                        showMessage(getString(R.string.content_loaded));
-                        mFileContents.setText(builder.toString());
-                        getDriveResourceClient().discardContents(driveContents);
+                    String fileName = String.format("%s/soub.pdf", mDownloadFolderName);
+
+                    File downloadFile = new File(fileName);
+                    if (!downloadFile.exists()) {
+                        downloadFile.createNewFile();
                     }
+                    OutputStream outStream = new FileOutputStream(downloadFile);
+
+
+
+                    byte[] buffer = new byte[100000];
+                    int bytesRead = 0;
+                    while ((bytesRead = driveContents.getInputStream().read(buffer)) != -1) {
+                        outStream.write(buffer, 0, bytesRead);
+                    }
+
+                    showMessage(getString(R.string.content_loaded));
+                    getDriveResourceClient().discardContents(driveContents);
+
+
+//                    try (BufferedReader reader = new BufferedReader(
+//                                 new InputStreamReader(driveContents.getInputStream()))) {
+//
+//
+//
+//
+//
+//                        StringBuilder builder = new StringBuilder();
+//                        String line;
+//                        while ((line = reader.readLine()) != null) {
+//                            builder.append(line);
+//                        }
+//                        showMessage(getString(R.string.content_loaded));
+//                        mFileContents.setText(builder.toString());
+//                        getDriveResourceClient().discardContents(driveContents);
+//                    }
                 } catch (IOException e) {
                     onError(e);
                 }

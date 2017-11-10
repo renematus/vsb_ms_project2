@@ -19,9 +19,11 @@ import lib.folderpicker.FolderPicker;
 
 public class CloudClientActivity extends AppCompatActivity {
 
-    final static int FOLDERPICKER_CODE = 100;
+    final static int FILEPICKER_CODE = 100;
+    final static int FOLDERPICKER_CODE = 200;
 
     TextView tvSelectedFile;
+    TextView tvSelectedFolder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,17 +31,24 @@ public class CloudClientActivity extends AppCompatActivity {
         setContentView(R.layout.cloud_client);
 
         tvSelectedFile =(TextView)findViewById(R.id.chosenFile);
+        tvSelectedFolder=(TextView)findViewById(R.id.selectedFolder);
     }
 
 
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode == FOLDERPICKER_CODE && resultCode == Activity.RESULT_OK) {
-
-            String folderLocation = intent.getExtras().getString("data");
-            Log.i("folderLocation", folderLocation);
-
-            tvSelectedFile.setText(folderLocation);
-
+        if (resultCode == Activity.RESULT_OK)
+        {
+            switch(requestCode)
+            {
+                case FILEPICKER_CODE:
+                    String folderLocation = intent.getExtras().getString("data");
+                    tvSelectedFile.setText(folderLocation);
+                    break;
+                case FOLDERPICKER_CODE:
+                    folderLocation = intent.getExtras().getString("data");
+                    tvSelectedFolder.setText(folderLocation);
+                    break;
+            }
         }
     }
 
@@ -52,7 +61,7 @@ public class CloudClientActivity extends AppCompatActivity {
         intent.putExtra("location", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath());
         //To pick files
         intent.putExtra("pickFiles", true);
-        startActivityForResult(intent, FOLDERPICKER_CODE);
+        startActivityForResult(intent, FILEPICKER_CODE);
 
 
 
@@ -61,6 +70,23 @@ public class CloudClientActivity extends AppCompatActivity {
     public void upload(View view) {
         Intent intent = new Intent(this, CreateFileInFolderActivity.class);
         intent.putExtra("fileName", tvSelectedFile.getText());
+        startActivity(intent);
+
+    }
+
+    public void selectFolderForDownload(View view) {
+        Intent intent = new Intent(this, FolderPicker.class);
+        //To show a custom title
+        intent.putExtra("title", "Select folder for download");
+        //To begin from a selected folder instead of sd card's root folder. Example : Pictures directory
+        intent.putExtra("location", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath());
+        startActivityForResult(intent, FOLDERPICKER_CODE);
+
+    }
+
+    public void download(View view) {
+        Intent intent = new Intent(this, RetrieveContentsWithProgressDialogActivity.class);
+        intent.putExtra("folderName", tvSelectedFolder.getText());
         startActivity(intent);
 
     }
