@@ -113,6 +113,11 @@ public class CreateFileInFolderActivity extends BaseActivity {
                             public void onSuccess(DriveFile driveFile) {
                                 showMessage(getString(R.string.file_created,
                                         driveFile.getDriveId().encodeToString()));
+
+                                //Todo:   go to back to activity
+                                finish();
+
+
                             }
                         })
                 .addOnFailureListener(this, new OnFailureListener() {
