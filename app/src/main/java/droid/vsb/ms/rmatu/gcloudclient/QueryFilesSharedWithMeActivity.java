@@ -27,10 +27,12 @@ import com.google.android.gms.drive.widget.DataBufferAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to query files shared with the user.
  */
-public class QueryFilesSharedWithMeActivity extends BaseDemoActivity {
+public class QueryFilesSharedWithMeActivity extends BaseActivity {
     private static final String TAG = "QueryFilesSharedWithMe";
 
     private DataBufferAdapter<Metadata> mResultsAdapter;

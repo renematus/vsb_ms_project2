@@ -25,10 +25,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to edit metadata of a file.
  */
-public class EditMetadataActivity extends BaseDemoActivity {
+public class EditMetadataActivity extends BaseActivity {
     private static final String TAG = "EditMetadataActivity";
 
     @Override

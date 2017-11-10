@@ -24,10 +24,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to retrieve the metadata of a file.
  */
-public class RetrieveMetadataActivity extends BaseDemoActivity {
+public class RetrieveMetadataActivity extends BaseActivity {
     private static final String TAG = "PinFileActivity";
 
     @Override

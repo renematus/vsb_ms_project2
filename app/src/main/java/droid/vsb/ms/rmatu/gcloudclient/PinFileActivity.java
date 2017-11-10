@@ -27,13 +27,15 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity that pins a file to the device. Pinning allows
  * a file's latest version to be available locally all the time.
  * Your users should be informed about the extra bandwidth
  * and storage requirements of pinning.
  */
-public class PinFileActivity extends BaseDemoActivity {
+public class PinFileActivity extends BaseActivity {
     private static final String TAG = "PinFileActivity";
 
     @Override

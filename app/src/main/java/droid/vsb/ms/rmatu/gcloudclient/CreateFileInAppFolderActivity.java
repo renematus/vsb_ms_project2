@@ -31,10 +31,12 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity that creates a text file in the App Folder.
  */
-public class CreateFileInAppFolderActivity extends BaseDemoActivity {
+public class CreateFileInAppFolderActivity extends BaseActivity {
     private static final String TAG = "CreateFileInAppFolder";
 
     @Override

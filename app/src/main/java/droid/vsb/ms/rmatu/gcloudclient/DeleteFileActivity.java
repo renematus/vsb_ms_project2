@@ -21,12 +21,13 @@ import com.google.android.gms.drive.DriveFile;
 import com.google.android.gms.drive.DriveId;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
 
 /**
  * An activity to illustrate how to delete a file.
  */
-public class DeleteFileActivity extends BaseDemoActivity {
+public class DeleteFileActivity extends BaseActivity {
     private static final String TAG = "DeleteFileActivity";
 
     @Override

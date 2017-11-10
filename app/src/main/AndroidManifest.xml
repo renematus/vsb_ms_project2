@@ -21,6 +21,7 @@
         </activity>
 
         <activity android:name=".view.CloudClientActivity" />
+        <activity android:name=".view.CreateFileInFolderActivity" />
 
         <activity android:name=".QueryFilesActivity" />
         <activity android:name=".RetrieveContentsActivity" />
@@ -35,7 +36,6 @@
         <activity android:name=".EditMetadataActivity" />
         <activity android:name=".CreateFileWithCreatorActivity" />
         <activity android:name=".RetrieveMetadataActivity" />
-        <activity android:name=".CreateFileInFolderActivity" />
         <activity android:name=".CreateFolderInFolderActivity" />
         <activity android:name=".QueryFilesInFolderActivity" />
         <activity android:name=".PinFileActivity" />

@@ -28,10 +28,12 @@ import com.google.android.gms.drive.widget.DataBufferAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to sort the results of a query.
  */
-public class QuerySortedFilesActivity extends BaseDemoActivity {
+public class QuerySortedFilesActivity extends BaseActivity {
     private static final String TAG = "QuerySorted";
 
     private DataBufferAdapter<Metadata> mResultsAdapter;

@@ -26,10 +26,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to delete a custom property from a file.
  */
-public class DeleteCustomPropertyActivity extends BaseDemoActivity {
+public class DeleteCustomPropertyActivity extends BaseActivity {
     private static final String TAG = "DeleteCustomProperty";
 
     @Override

@@ -29,10 +29,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to query files.
  */
-public class QueryFilesActivity extends BaseDemoActivity {
+public class QueryFilesActivity extends BaseActivity {
     private static final String TAG = "QueryFiles";
 
     private DataBufferAdapter<Metadata> mResultsAdapter;

@@ -14,9 +14,7 @@
 
 package droid.vsb.ms.rmatu.gcloudclient;
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.google.android.gms.drive.DriveFile;
@@ -24,16 +22,17 @@ import com.google.android.gms.drive.DriveId;
 import com.google.android.gms.drive.Metadata;
 import com.google.android.gms.drive.MetadataChangeSet;
 import com.google.android.gms.drive.metadata.CustomPropertyKey;
-import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
 
 /**
  * An activity to illustrate how update or insert (if it does not exist) a custom property onto a
  * file.
  */
-public class InsertUpdateCustomPropertyActivity extends BaseDemoActivity {
+public class InsertUpdateCustomPropertyActivity extends BaseActivity {
     private static final String TAG = "DeleteCustomProperty";
 
     @Override

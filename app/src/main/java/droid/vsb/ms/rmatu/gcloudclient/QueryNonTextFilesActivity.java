@@ -28,10 +28,12 @@ import com.google.android.gms.drive.widget.DataBufferAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to query non text files.
  */
-public class QueryNonTextFilesActivity extends BaseDemoActivity {
+public class QueryNonTextFilesActivity extends BaseActivity {
     private static final String TAG = "QueryNonTextFiles";
 
     private DataBufferAdapter<Metadata> mResultsAdapter;

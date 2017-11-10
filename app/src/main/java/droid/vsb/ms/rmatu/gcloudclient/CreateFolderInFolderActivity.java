@@ -23,10 +23,12 @@ import com.google.android.gms.drive.MetadataChangeSet;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to create a folder inside a folder.
  */
-public class CreateFolderInFolderActivity extends BaseDemoActivity {
+public class CreateFolderInFolderActivity extends BaseActivity {
     private static final String TAG = "CreateFolderInFolder";
 
     @Override

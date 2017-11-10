@@ -29,10 +29,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to query files with title equal to HelloWorld.txt.
  */
-public class QueryFilesWithTitleActivity extends BaseDemoActivity {
+public class QueryFilesWithTitleActivity extends BaseActivity {
     private static final String TAG = "QueryFilesWithTitle";
 
     private DataBufferAdapter<Metadata> mResultsAdapter;

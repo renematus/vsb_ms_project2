@@ -33,10 +33,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to edit contents of a Drive file.
  */
-public class AppendContentsActivity extends BaseDemoActivity {
+public class AppendContentsActivity extends BaseActivity {
     private static final String TAG = "AppendContentsActivity";
 
     @Override

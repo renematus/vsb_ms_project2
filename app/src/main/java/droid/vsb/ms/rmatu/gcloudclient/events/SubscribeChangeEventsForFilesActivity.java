@@ -39,13 +39,13 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.Date;
 
-import droid.vsb.ms.rmatu.gcloudclient.BaseDemoActivity;
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
 import droid.vsb.ms.rmatu.gcloudclient.R;
 
 /**
  * An activity that listens to change events on a user-picked file.
  */
-public class SubscribeChangeEventsForFilesActivity extends BaseDemoActivity {
+public class SubscribeChangeEventsForFilesActivity extends BaseActivity {
     private static final String TAG = "SubscribeChangeEvents";
 
     /*

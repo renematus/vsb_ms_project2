@@ -31,10 +31,12 @@ import com.google.android.gms.tasks.Task;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * Activity to illustrate how to retrieve and read file contents.
  */
-public class RetrieveContentsActivity extends BaseDemoActivity {
+public class RetrieveContentsActivity extends BaseActivity {
     private static final String TAG = "RetrieveContents";
 
     /**

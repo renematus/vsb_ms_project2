@@ -28,10 +28,12 @@ import com.google.android.gms.drive.widget.DataBufferAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * Activity to illustrate querying files that are starred and text.
  */
-public class QueryStarredTextFilesActivity extends BaseDemoActivity {
+public class QueryStarredTextFilesActivity extends BaseActivity {
     private static final String TAG = "QueryStarred";
 
     private DataBufferAdapter<Metadata> mResultsAdapter;

@@ -33,13 +33,15 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity that illustrates how to use the creator
  * intent to create a new file. The creator intent allows the user
  * to select the parent folder and the title of the newly
  * created file.
  */
-public class CreateFileWithCreatorActivity extends BaseDemoActivity {
+public class CreateFileWithCreatorActivity extends BaseActivity {
     private static final String TAG = "CreateFileWithCreator";
 
     private static final int REQUEST_CODE_CREATE_FILE = 2;

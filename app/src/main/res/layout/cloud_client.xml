@@ -4,4 +4,34 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select file for upload"
+        android:onClick="chooseFile"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Choosen file:"/>
+
+    <TextView
+        android:id="@+id/chosenFile"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Choosen file:"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload to cloud"
+        android:onClick="upload"/>
+
 </LinearLayout>

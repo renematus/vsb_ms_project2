@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package droid.vsb.ms.rmatu.gcloudclient;
+package droid.vsb.ms.rmatu.gcloudclient.view;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -31,10 +31,12 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
+import droid.vsb.ms.rmatu.gcloudclient.R;
+
 /**
  * An activity to create a file inside a folder.
  */
-public class CreateFileInFolderActivity extends BaseDemoActivity {
+public class CreateFileInFolderActivity extends BaseActivity {
     private static final String TAG = "CreateFileActivity";
 
     @Override

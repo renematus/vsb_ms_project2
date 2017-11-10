@@ -27,10 +27,12 @@ import com.google.android.gms.tasks.Task;
 
 import java.io.OutputStream;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to edit contents of a Drive file.
  */
-public class RewriteContentsActivity extends BaseDemoActivity {
+public class RewriteContentsActivity extends BaseActivity {
     private static final String TAG = "RewriteContentsActivity";
 
     @Override

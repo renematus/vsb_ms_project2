@@ -28,10 +28,12 @@ import com.google.android.gms.drive.widget.DataBufferAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to query for files with a matching custom property.
  */
-public class QueryFilesWithCustomPropertyActivity extends BaseDemoActivity {
+public class QueryFilesWithCustomPropertyActivity extends BaseActivity {
     private static final String TAG = "QueryFilesWithProperty";
 
     private DataBufferAdapter<Metadata> mResultsAdapter;

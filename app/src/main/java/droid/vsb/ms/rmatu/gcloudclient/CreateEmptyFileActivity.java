@@ -25,10 +25,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to create an empty file.
  */
-public class CreateEmptyFileActivity extends BaseDemoActivity {
+public class CreateEmptyFileActivity extends BaseActivity {
     private static final String TAG = "CreateEmptyFileActivity";
 
     @Override

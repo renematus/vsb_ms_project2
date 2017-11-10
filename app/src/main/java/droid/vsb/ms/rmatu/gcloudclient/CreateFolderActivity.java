@@ -24,10 +24,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to create a new folder.
  */
-public class CreateFolderActivity extends BaseDemoActivity {
+public class CreateFolderActivity extends BaseActivity {
     private static final String TAG = "CreateFolderActivity";
 
     @Override

@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package droid.vsb.ms.rmatu.gcloudclient;
+package droid.vsb.ms.rmatu.gcloudclient.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -41,11 +41,13 @@ import com.google.android.gms.tasks.TaskCompletionSource;
 import java.util.HashSet;
 import java.util.Set;
 
+import droid.vsb.ms.rmatu.gcloudclient.R;
+
 /**
  * An abstract activity that handles authorization and connection to the Drive
  * services.
  */
-public abstract class BaseDemoActivity extends Activity {
+public abstract class BaseActivity extends Activity {
     private static final String TAG = "BaseDriveActivity";
 
     /**

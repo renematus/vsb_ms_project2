@@ -34,11 +34,13 @@ import java.io.InputStreamReader;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
+
 /**
  * An activity to illustrate how to open contents and listen
  * the download progress if the file is not already sync'ed.
  */
-public class RetrieveContentsWithProgressDialogActivity extends BaseDemoActivity {
+public class RetrieveContentsWithProgressDialogActivity extends BaseActivity {
     private static final String TAG = "RetrieveWithProgress";
 
     /**
