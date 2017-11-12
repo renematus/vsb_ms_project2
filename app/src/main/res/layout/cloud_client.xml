@@ -59,7 +59,8 @@
             android:id="@+id/selectedFolder"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Choosen file:"/>
+            android:text="Choosen file:"
+            />
 
     </LinearLayout>
 
@@ -68,6 +69,18 @@
         android:layout_height="wrap_content"
         android:text="Download from cloud"
         android:onClick="download"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/colorAccent"></View>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete file"
+        android:onClick="delete"/>
+
 
 
 </LinearLayout>

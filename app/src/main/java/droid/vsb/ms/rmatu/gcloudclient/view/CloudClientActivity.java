@@ -90,4 +90,9 @@ public class CloudClientActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void delete(View view) {
+        Intent intent = new Intent(this, DeleteFileActivity.class);
+        startActivity(intent);
+    }
 }

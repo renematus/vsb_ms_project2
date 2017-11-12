@@ -26,6 +26,7 @@
         <activity android:name=".view.CloudClientActivity" />
         <activity android:name=".view.CreateFileInFolderActivity" />
         <activity android:name=".view.RetrieveContentsWithProgressDialogActivity" />
+        <activity android:name=".view.DeleteFileActivity" />
 
 
 
@@ -35,7 +36,6 @@
         <activity android:name=".CreateEmptyFileActivity" />
         <activity android:name=".CreateFileInAppFolderActivity" />
         <activity android:name=".CreateFolderActivity" />
-        <activity android:name=".DeleteFileActivity" />
         <activity android:name=".AppendContentsActivity" />
         <activity android:name=".RewriteContentsActivity" />
         <activity android:name=".EditMetadataActivity" />

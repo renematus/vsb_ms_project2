@@ -149,22 +149,6 @@ public class RetrieveContentsWithProgressDialogActivity extends BaseActivity {
                     getDriveResourceClient().discardContents(driveContents);
 
 
-//                    try (BufferedReader reader = new BufferedReader(
-//                                 new InputStreamReader(driveContents.getInputStream()))) {
-//
-//
-//
-//
-//
-//                        StringBuilder builder = new StringBuilder();
-//                        String line;
-//                        while ((line = reader.readLine()) != null) {
-//                            builder.append(line);
-//                        }
-//                        showMessage(getString(R.string.content_loaded));
-//                        mFileContents.setText(builder.toString());
-//                        getDriveResourceClient().discardContents(driveContents);
-//                    }
                 } catch (IOException e) {
                     onError(e);
                 }

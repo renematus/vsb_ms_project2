@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package droid.vsb.ms.rmatu.gcloudclient;
+package droid.vsb.ms.rmatu.gcloudclient.view;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -22,6 +22,7 @@ import com.google.android.gms.drive.DriveId;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import droid.vsb.ms.rmatu.gcloudclient.R;
 import droid.vsb.ms.rmatu.gcloudclient.view.BaseActivity;
 
 /**
