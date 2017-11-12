@@ -25,9 +25,12 @@ import android.widget.TextView;
 import com.google.android.gms.drive.DriveContents;
 import com.google.android.gms.drive.DriveFile;
 import com.google.android.gms.drive.DriveId;
+import com.google.android.gms.drive.DriveResource;
+import com.google.android.gms.drive.Metadata;
 import com.google.android.gms.drive.events.OpenFileCallback;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -109,64 +112,92 @@ public class RetrieveContentsWithProgressDialogActivity extends BaseActivity {
         mExecutorService.shutdown();
     }
 
-    private void retrieveContents(DriveFile file) {
-        // [START read_with_progress_listener]
-        OpenFileCallback openCallback = new OpenFileCallback() {
-            @Override
-            public void onProgress(long bytesDownloaded, long bytesExpected) {
-                // Update progress dialog with the latest progress.
-                int progress = (int) (bytesDownloaded * 100 / bytesExpected);
-                Log.d(TAG, String.format("Loading progress: %d percent", progress));
-                mProgressBar.setProgress(progress);
-            }
+    String mFileTitle;
 
-            @Override
-            public void onContents(@NonNull DriveContents driveContents) {
-                // onProgress may not be called for files that are already
-                // available on the device. Mark the progress as complete
-                // when contents available to ensure status is updated.
-                mProgressBar.setProgress(100);
-                // Read contents
-                // [START_EXCLUDE]
-                try {
-                    String fileName = String.format("%s/soub.pdf", mDownloadFolderName);
+    private void retrieveContents(final DriveFile file) {
 
-                    File downloadFile = new File(fileName);
-                    if (!downloadFile.exists()) {
-                        downloadFile.createNewFile();
+
+        Task<Metadata> getMetadataTask = getDriveResourceClient().getMetadata(file);
+        getMetadataTask
+                .addOnSuccessListener(this,
+                        new OnSuccessListener<Metadata>() {
+                            @Override
+                            public void onSuccess(Metadata metadata) {
+                                mFileTitle=metadata.getTitle();
+
+                                // [START read_with_progress_listener]
+                                OpenFileCallback openCallback = new OpenFileCallback() {
+                                    @Override
+                                    public void onProgress(long bytesDownloaded, long bytesExpected) {
+                                        // Update progress dialog with the latest progress.
+                                        int progress = (int) (bytesDownloaded * 100 / bytesExpected);
+                                        Log.d(TAG, String.format("Loading progress: %d percent", progress));
+                                        mProgressBar.setProgress(progress);
+                                    }
+
+                                    @Override
+                                    public void onContents(@NonNull DriveContents driveContents) {
+                                        // onProgress may not be called for files that are already
+                                        // available on the device. Mark the progress as complete
+                                        // when contents available to ensure status is updated.
+                                        mProgressBar.setProgress(100);
+                                        // Read contents
+                                        // [START_EXCLUDE]
+                                        try {
+
+
+
+                                            String fileName = String.format("%s/%s", mDownloadFolderName, mFileTitle);
+
+                                            File downloadFile = new File(fileName);
+                                            if (!downloadFile.exists()) {
+                                                downloadFile.createNewFile();
+                                            }
+                                            OutputStream outStream = new FileOutputStream(downloadFile);
+
+
+
+                                            byte[] buffer = new byte[100000];
+                                            int bytesRead = 0;
+                                            while ((bytesRead = driveContents.getInputStream().read(buffer)) != -1) {
+                                                outStream.write(buffer, 0, bytesRead);
+                                            }
+
+                                            showMessage(getString(R.string.content_loaded));
+                                            getDriveResourceClient().discardContents(driveContents);
+
+
+                                        } catch (IOException e) {
+                                            onError(e);
+                                        }
+                                        // [END_EXCLUDE]
+                                    }
+
+                                    @Override
+                                    public void onError(@NonNull Exception e) {
+                                        // Handle error
+                                        // [START_EXCLUDE]
+                                        Log.e(TAG, "Unable to read contents", e);
+                                        showMessage(getString(R.string.read_failed));
+                                        finish();
+                                        // [END_EXCLUDE]
+                                    }
+                                };
+
+                                getDriveResourceClient().openFile(file, DriveFile.MODE_READ_ONLY, openCallback);
+                                // [END read_with_progress_listener]
+
+                            }
+                        })
+                .addOnFailureListener(this, new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e(TAG, "Unable to retrieve metadata", e);
+                        showMessage(getString(R.string.read_failed));
+                        finish();
                     }
-                    OutputStream outStream = new FileOutputStream(downloadFile);
+                });
 
 
-
-                    byte[] buffer = new byte[100000];
-                    int bytesRead = 0;
-                    while ((bytesRead = driveContents.getInputStream().read(buffer)) != -1) {
-                        outStream.write(buffer, 0, bytesRead);
-                    }
-
-                    showMessage(getString(R.string.content_loaded));
-                    getDriveResourceClient().discardContents(driveContents);
-
-
-                } catch (IOException e) {
-                    onError(e);
-                }
-                // [END_EXCLUDE]
-            }
-
-            @Override
-            public void onError(@NonNull Exception e) {
-                // Handle error
-                // [START_EXCLUDE]
-                Log.e(TAG, "Unable to read contents", e);
-                showMessage(getString(R.string.read_failed));
-                finish();
-                // [END_EXCLUDE]
-            }
-        };
-
-        getDriveResourceClient().openFile(file, DriveFile.MODE_READ_ONLY, openCallback);
-        // [END read_with_progress_listener]
     }
 }
